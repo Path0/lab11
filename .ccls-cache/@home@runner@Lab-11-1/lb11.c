@@ -235,8 +235,9 @@ int findIdentifiedVal(int b)
   //int valFound; // stores a 0 or 1 for the while condition
   int a; // the 'a' value in the equation
   int c; // the 'c' value in the equation
-  
+  int returnValue;
   //valFound = 0;
+  returnValue = 0;
   
   for(a = 1; a <= ceil(sqrt(b)); a++)
   {
@@ -244,12 +245,13 @@ int findIdentifiedVal(int b)
     {
       if (b == pow(a, 2) * c)
       {
+        returnValue = b;
         //print function if it is a perfect sqare or semisquare;
       }
     }
   }
    
-  return b;
+  return returnValue;
 }
 
 /*****+*-****--***------*-*--**---*-****-***--******************************
