@@ -174,7 +174,6 @@ void outputSquares(int array[])
 
   count_prints = 0;
 
-  printf("\n");
 
   // checks if there are any perfect squares, and if so prints the text before the numbers
   x = 0;
@@ -185,7 +184,7 @@ void outputSquares(int array[])
   
   if(isPerfectSquare(array[x]) != 0) // if there is, prints the thing, if not, doesn't
   {
-    printf("Perfect squares: ");
+    printf("\nPerfect squares: ");
   }
   
   for(x = 0; x < ARRAY_SIZE; x++) // checks the array for perfect squares, it's already sorted so prints them as it finds them
