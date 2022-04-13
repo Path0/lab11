@@ -44,8 +44,8 @@ void bubbleSort(int x[]);
 
 int main(void)
 {
-  int data[ARRAY_SIZE];
-  int range;
+  int data[ARRAY_SIZE]; // creates an array of 100 elements
+  int range; // the maximum value in a range defined by the user
   
   getSeed();
   range = getMax();
@@ -53,7 +53,6 @@ int main(void)
   bubbleSort(data);
   outputSquares(data);
 
-  
   return 0;
 }
 
@@ -143,7 +142,7 @@ int getMax()
 
 void fillArray(int range, int array[])
 {
-  int x;
+  int x; // index value for the array iteration
   
   for(x = 0; x < ARRAY_SIZE; x++)
   {
@@ -170,25 +169,26 @@ void fillArray(int range, int array[])
 
 void outputSquares(int array[])
 {
-  int x; // index value for the array
-  int count_prints; // keeps track if 
+  int x; // index value for the array iteration
+  int count_prints; // keeps track if there are squares printed for the case that no squares are printed
 
   count_prints = 0;
 
   printf("\n");
-  
+
+  // checks if there are any perfect squares, and if so prints the text before the numbers
   x = 0;
-  while((isPerfectSquare(array[x]) == 0) && (x < ARRAY_SIZE))
+  while((isPerfectSquare(array[x]) == 0) && (x < ARRAY_SIZE)) // this stops if there arent any or there is one
   {
      x++;
   }
   
-  if(isPerfectSquare(array[x]) != 0)
+  if(isPerfectSquare(array[x]) != 0) // if there is, prints the thing, if not, doesn't
   {
     printf("Perfect squares: ");
   }
   
-  for(x = 0; x < ARRAY_SIZE; x++)
+  for(x = 0; x < ARRAY_SIZE; x++) // checks the array for perfect squares, it's already sorted so prints them as it finds them
   {
     if(findIdentifiedVal(array[x]) != 0)
     {
@@ -200,8 +200,11 @@ void outputSquares(int array[])
     }
   } 
   printf("\n");
-  
+
+  //checks for semi squares and prints the text if it finds one
   x = 0;
+
+  // if the number is significant (findIdentifiedVal isn't 0) or it's also a perfect square, keep going
   while((findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x]))) && (x < ARRAY_SIZE))
   {
     x++;
@@ -242,7 +245,7 @@ void outputSquares(int array[])
 *  Function Return Type: void
 *
 *  Parameters (list data type, name, and comment one per line):
-*  1.int, x[], teh array that needs to be sorted
+*  1.int, x[], the array that needs to be sorted
 *
 *  Function Description: Attained from page 179 of the note packet. It sorts
 *  the elements in the array from smallest to largest. 
@@ -323,8 +326,8 @@ int isPerfectSquare(int number)
 *  equal to or greater than the user inputed value. It does this by seeing if
 *  a value that is less than the square root of the user inputed value is equal
 *  to b. If it is not it checks if that value multiplied by an intiger that is
-*  than the squared value would equal b. If both options do not work it raises
-*  b by one and checks that number. 
+*  than the squared value would equal b. If b does meet this criteria it returns
+*  it, otherwise the function returns 0.
 *
 ******+-**------*---**-*-**---*-*-*--*-*****--*****************************/
 int findIdentifiedVal(int b)
