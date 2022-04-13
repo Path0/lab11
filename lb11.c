@@ -225,7 +225,7 @@ int findIndentifiedVal(int b)
   int a; // the 'a' value in the equation
   int c; // the 'c' value in the equation
   
-  valFound = 0;
+  //valFound = 0;
   
   for(a = 1; a <= ceil(sqrt(b)); a++)
   {
