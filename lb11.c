@@ -208,7 +208,6 @@ void outputSquares(int array[])
 
   // if the number is significant (findIdentifiedVal isn't 0) or it's also a perfect square, keep going
   while((x < ARRAY_SIZE) && (((findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x])))))
-  
   //while((((findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x])))) && (x < ARRAY_SIZE))
   {
 
