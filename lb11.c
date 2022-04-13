@@ -39,7 +39,7 @@ int getMax();
 int isPerfectSquare(int);
 int findIdentifiedVal(int);
 void fillArray(int, int[]);
-void findPerfectSquares(int[]);
+void outputSquares(int[]);
 void bubbleSort(int x[]);
 
 int main(void)
@@ -51,7 +51,7 @@ int main(void)
   range = getMax();
   fillArray(range, data);
   bubbleSort(data);
-  findPerfectSquares(data);
+  outputSquares(data);
 
   
   return 0;
@@ -133,11 +133,11 @@ int getMax()
 *  Function Return Type: void
 *
 *  Parameters (list data type, name, and comment one per line):
-*  1. int range // 
-*  2. 
-*  3. 
+*  1. int range // the range defined by the user
+*  2. int array[] // the array that will have random values 
 *
-*  Function Description: 
+*  Function Description: this function makes each index in a given array have
+*                        random values from 1 - range (user defined range, inclusive)
 *
 ******+--**---*-*----*-****----------*-*-*-**-*****************************/
 
@@ -151,24 +151,43 @@ void fillArray(int range, int array[])
   }
 }
 
-void findPerfectSquares(int array[])
+/*****+--**---*-*----*-****----------*-*-*-**-******************************
+*
+*  Function Information
+*
+*  Name of Function: outputSquares()
+*
+*  Function Return Type: void
+*
+*  Parameters (list data type, name, and comment one per line):
+*  1. int array[] // the array that will have random values 
+*
+*  Function Description: this function finds the perfect squares and semi-squares
+*                        in an array (if possible) and prints them. If no squares
+*                        exist then imforms the user that no squares exist.
+*
+******+--**---*-*----*-****----------*-*-*-**-*****************************/
+
+void outputSquares(int array[])
 {
-  int x;
-  int count_prints;
+  int x; // index value for the array
+  int count_prints; // keeps track if ther 
 
   count_prints = 0;
 
   printf("\n");
-
-  for(x = 0; x < ARRAY_SIZE; x++)
+  
+  x = 0;
+  while((isPerfectSquare(array[x]) == 0) && (x < ARRAY_SIZE))
   {
-    if(isPerfectSquare(array[x] != 0))
-    {
-      printf("Perfect squares: ");
-    }
-    break;
+     x++;
   }
-
+  
+  if(isPerfectSquare(array[x]) != 0)
+  {
+    printf("Perfect squares: ");
+  }
+  
   for(x = 0; x < ARRAY_SIZE; x++)
   {
     if(findIdentifiedVal(array[x]) != 0)
@@ -182,15 +201,17 @@ void findPerfectSquares(int array[])
   } 
   printf("\n");
   
-
-  for(x = 0; x < ARRAY_SIZE; x++)
+  x = 0;
+  while((findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x]))) && (x < ARRAY_SIZE))
   {
-     if((findIdentifiedVal(array[x]) != 0) && (findIdentifiedVal(array[x]) != isPerfectSquare(array[x])))
-     {
-        printf("Semi-squares: ");
-     }
-    break;
+    x++;
   }
+
+  if((findIdentifiedVal(array[x]) != 0) && (findIdentifiedVal(array[x]) != isPerfectSquare(array[x])))
+  { 
+    printf("Semi-squares: ");
+  }
+  
   
   for(x = 0; x < ARRAY_SIZE; x++)
   {
@@ -212,6 +233,21 @@ void findPerfectSquares(int array[])
   printf("\n");
 }
 
+/*****+--**---*-*----*-****----------*-*-*-**-******************************
+*
+*  Function Information
+*
+*  Name of Function: bubbleSort
+*
+*  Function Return Type: void
+*
+*  Parameters (list data type, name, and comment one per line):
+*  1.int, x[], teh array that needs to be sorted
+*
+*  Function Description: Attained from page 179 of the note packet. It sorts
+*  the elements in the array from smallest to largest. 
+*
+******+--**---*-*----*-****----------*-*-*-**-*****************************/
 void bubbleSort(int x[])
 {
   int numPasses; //LCV that controls number of passes
