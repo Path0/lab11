@@ -194,7 +194,7 @@ void outputSquares(int array[])
       if(findIdentifiedVal(array[x]) == isPerfectSquare(array[x]))
       {
         ++count_prints;
-        printf("%d ", findIdentifiedVal(array[x]));
+        printf("%d ", isPerfectSquare(array[x]));
       }
     }
   } 
@@ -301,10 +301,10 @@ int isPerfectSquare(int number)
       squareValue = number;
     }
   }
-
+  //printf("%d ",number);
   if(number == 1)
   {
-    squareValue = number;
+    squareValue = 1;
   }
   
   return squareValue;
@@ -346,6 +346,11 @@ int findIdentifiedVal(int b)
         returnValue = b;
       }
     }
+  }
+
+  if(b == 1)
+  {
+    returnValue = b;
   }
   return returnValue;
 }
