@@ -208,6 +208,11 @@ int isPerfectSquare(int number)
       squareValue = number;
     }
   }
+
+  if(number == 1)
+  {
+    squareValue = number;
+  }
   
   return squareValue;
 }
