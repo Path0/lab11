@@ -178,7 +178,6 @@ void outputSquares(int array[])
 
   count_prints = 0;
 
-
   // checks if there are any perfect squares, and if so prints the text before the numbers
   x = 0;
   while((isPerfectSquare(array[x]) == 0) && (x < ARRAY_SIZE)) // this stops if there arent any or there is one
@@ -208,9 +207,11 @@ void outputSquares(int array[])
   x = 0;
 
   // if the number is significant (findIdentifiedVal isn't 0) or it's also a perfect square, keep going
+  while((x < ARRAY_SIZE) && (((findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x])))))
+  
   while((((findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x])))) && (x < ARRAY_SIZE))
   {
-    printf("%d", x);
+
     x++;
   }
 
@@ -218,7 +219,6 @@ void outputSquares(int array[])
   { 
     printf("Semi-squares: ");
   }
-  
   
   for(x = 0; x < ARRAY_SIZE; x++)
   {
@@ -274,7 +274,6 @@ void bubbleSort(int x[])
     } // end neighbor comparing loop
   } //end passes loop
 }
-
 
 /*****+-**------*---**-*-**---*-*-*--*-*****--******************************
 *
