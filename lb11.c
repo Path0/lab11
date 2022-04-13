@@ -83,7 +83,7 @@ void getSeed()
 
     if (seed <= 0)
     {
-      printf("Error! Positive seed values only!!\n");
+      printf("\nError! Positive seed values only!!\n\n");
     }
   } while (seed <= 0);
   srand(seed);
