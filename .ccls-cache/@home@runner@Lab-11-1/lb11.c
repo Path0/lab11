@@ -34,7 +34,7 @@
 
 #define ARRAY_SIZE 100
 
-int getSeed();
+void getSeed();
 int isPerfectSquare(int);
 int findIdentifiedVal(int);
 void fillArray(int, int[]);
@@ -43,7 +43,7 @@ void bubbleSort(int x[]);
 
 int main(void)
 {
-  int data[100];
+  int data[ARRAY_SIZE];
   int range;
   
   range = getSeed();
@@ -59,22 +59,21 @@ int main(void)
 *
 *  Function Information
 *
-*  Name of Function: input
+*  Name of Function: getSeed()
 *
-*  Function Return Type: int
+*  Function Return Type: void
 *
-*  Parameters (list data type, name, and comment one per line):
-*
+*  Parameters (list data type, name, and comment one per line): NONE
+
 *  Function Description: Gets the seed input from the user that will be used 
 *  to calculate random values. Also gets the maximum value allowed in the random
 *  numbers
 *
 ******+--**---*-*----*-****----------*-*-*-**-*****************************/
 
-int getSeed()
+void getSeed()
 {
   int seed; // stores the seed value from the user
-  int max; // user inputed maximum random value
   
   do
   {
@@ -88,6 +87,27 @@ int getSeed()
   } while (seed <= 0);
   srand(seed);
 
+}
+
+/*****+--**---*-*----*-****----------*-*-*-**-******************************
+*
+*  Function Information
+*
+*  Name of Function: getMax()
+*
+*  Function Return Type: int
+*
+*  Parameters (list data type, name, and comment one per line):
+*
+*  Function Description:  Gets the maximum value allowed in the random
+*  numbers and returns it
+*
+******+--**---*-*----*-****----------*-*-*-**-*****************************/
+
+int getMax()
+{
+  int max; // user inputed maximum random value
+  
   do
   {
     printf("Enter maximum range value -> ");
@@ -101,6 +121,8 @@ int getSeed()
 
   return (max);
 }
+
+
 
 
 void fillArray(int range, int array[])
@@ -121,7 +143,16 @@ void findPerfectSquares(int array[])
   count_prints = 0;
 
   printf("\n");
-  printf("Perfect squares: ");
+
+  for(x = 0; x < ARRAY_SIZE; x++)
+  {
+    if(isPerfectSquare(array[x] != 0))
+    {
+      printf("Perfect squares: ");
+    }
+    continue;
+  }
+
   for(x = 0; x < ARRAY_SIZE; x++)
   {
     if(findIdentifiedVal(array[x]) != 0)
@@ -136,7 +167,15 @@ void findPerfectSquares(int array[])
   printf("\n");
   
 
-  printf("Semi-squares: ");
+  for(x = 0; x < ARRAY_SIZE; x++)
+  {
+     if((findIdentifiedVal(array[x]) != 0) && (findIdentifiedVal(array[x]) != isPerfectSquare(array[x])))
+     {
+        printf("Semi-squares: ");
+     }
+    continue;
+  }
+  
   for(x = 0; x < ARRAY_SIZE; x++)
   {
     if(findIdentifiedVal(array[x]) != 0)
@@ -238,11 +277,10 @@ int isPerfectSquare(int number)
 ******+-**------*---**-*-**---*-*-*--*-*****--*****************************/
 int findIdentifiedVal(int b)
 {
-  //int valFound; // stores a 0 or 1 for the while condition
   int a; // the 'a' value in the equation
   int c; // the 'c' value in the equation
   int returnValue;
-  //valFound = 0;
+  
   returnValue = 0;
   
   for(a = 1; a <= ceil(sqrt(b)); a++)
@@ -252,55 +290,10 @@ int findIdentifiedVal(int b)
       if (b == pow(a, 2) * c)
       {
         returnValue = b;
-        //print function if it is a perfect sqare or semisquare;
       }
     }
   }
    
   return returnValue;
 }
-
-/*****+*-****--***------*-*--**---*-****-***--******************************
-*
-*  Function Information
-*
-*  Name of Function: getValue
-*
-*  Function Return Type: int
-*
-*  Parameters (list data type, name, and comment one per line):
-*    1. int *array // array to get the value from
-*    2. int index // index in the array to get the value of
-*
-*  Function Description: Gets the value in a specified index of an inputted 
-*  array.
-*
-******+*-****--***------*-*--**---*-****-***--*****************************/
-int getValue(int *array, int index)
-{
-  return * (array + index); // aka array[index] but with pointers
-}
-
-/*****+*-****--***------*-*--**---*-****-***--******************************
-*
-*  Function Information
-*
-*  Name of Function: setValue
-*
-*  Function Return Type: void
-*
-*  Parameters (list data type, name, and comment one per line):
-*    1. int *array // array to modify
-*    2. int index // index in the array to modify
-*    3. int value // value to set in the specified array
-*
-*  Function Description: Given an array, an index, and a value, sets the 
-*  index in the array to the value specified.
-*
-******+*-****--***------*-*--**---*-****-***--*****************************/
-/*
-void setValue(int *array, int index, int value)
-{
-  * (array + index) = value; // aka array[index] = value; but with pointers
-} */
 
