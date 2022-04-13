@@ -204,7 +204,7 @@ int isPerfectSquare(int number)
     currentSquare = pow(index, 2);
     if(number == currentSquare) // if the number is equal to a calculated perfect square between 1 and the number, return 1 to signal that it is a perfect square
     {
-      squareValue = 1;
+      squareValue = number;
     }
   }
   
