@@ -35,6 +35,7 @@
 #define ARRAY_SIZE 100
 
 void getSeed();
+int getMax();
 int isPerfectSquare(int);
 int findIdentifiedVal(int);
 void fillArray(int, int[]);
@@ -46,7 +47,8 @@ int main(void)
   int data[ARRAY_SIZE];
   int range;
   
-  range = getSeed();
+  getSeed();
+  range = getMax();
   fillArray(range, data);
   bubbleSort(data);
   findPerfectSquares(data);
@@ -97,7 +99,7 @@ void getSeed()
 *
 *  Function Return Type: int
 *
-*  Parameters (list data type, name, and comment one per line):
+*  Parameters (list data type, name, and comment one per line): NONE
 *
 *  Function Description:  Gets the maximum value allowed in the random
 *  numbers and returns it
@@ -122,8 +124,22 @@ int getMax()
   return (max);
 }
 
-
-
+/*****+--**---*-*----*-****----------*-*-*-**-******************************
+*
+*  Function Information
+*
+*  Name of Function: fillArray()
+*
+*  Function Return Type: void
+*
+*  Parameters (list data type, name, and comment one per line):
+*  1. int range // 
+*  2. 
+*  3. 
+*
+*  Function Description: 
+*
+******+--**---*-*----*-****----------*-*-*-**-*****************************/
 
 void fillArray(int range, int array[])
 {
@@ -150,7 +166,7 @@ void findPerfectSquares(int array[])
     {
       printf("Perfect squares: ");
     }
-    continue;
+    break;
   }
 
   for(x = 0; x < ARRAY_SIZE; x++)
@@ -173,7 +189,7 @@ void findPerfectSquares(int array[])
      {
         printf("Semi-squares: ");
      }
-    continue;
+    break;
   }
   
   for(x = 0; x < ARRAY_SIZE; x++)
