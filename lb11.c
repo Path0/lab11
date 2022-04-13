@@ -116,6 +116,9 @@ void fillArray(int range, int array[])
 void findPerfectSquares(int array[])
 {
   int x;
+  int count_prints;
+
+  count_prints = 0;
 
   printf("Perfect squares: ");
   for(x = 0; x < ARRAY_SIZE; x++)
@@ -124,6 +127,7 @@ void findPerfectSquares(int array[])
     {
       if(findIdentifiedVal(array[x]) == isPerfectSquare(array[x]))
       {
+        ++count_prints;
         printf("%d ", findIdentifiedVal(array[x]));
       }
     }
@@ -138,10 +142,17 @@ void findPerfectSquares(int array[])
     {
       if(findIdentifiedVal(array[x]) != isPerfectSquare(array[x]))
       {
+        ++count_prints;
         printf("%d ", findIdentifiedVal(array[x]));
       }
     }
   } 
+
+  if (count_prints == 0)
+  {
+    printf("Result: No perfect or semi-squares found.");
+  }
+  
   printf("\n");
 }
 
@@ -219,7 +230,7 @@ int isPerfectSquare(int number)
 *  b by one and checks that number. 
 *
 ******+-**------*---**-*-**---*-*-*--*-*****--*****************************/
-int findIndentifiedVal(int b)
+int findIdentifiedVal(int b)
 {
   //int valFound; // stores a 0 or 1 for the while condition
   int a; // the 'a' value in the equation
