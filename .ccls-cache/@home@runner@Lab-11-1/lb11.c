@@ -204,7 +204,7 @@ void outputSquares(int array[])
   x = 0;
 
   // if the number is significant (findIdentifiedVal isn't 0) or it's also a perfect square, keep going
-  while((findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x])) && (x < ARRAY_SIZE))
+  while((( (findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x])))) && (x < ARRAY_SIZE))
   {
     x++;
   }
@@ -347,7 +347,6 @@ int findIdentifiedVal(int b)
       }
     }
   }
-  printf("run");
   return returnValue;
 }
 
