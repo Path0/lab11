@@ -120,6 +120,7 @@ void findPerfectSquares(int array[])
 
   count_prints = 0;
 
+  printf("\n");
   printf("Perfect squares: ");
   for(x = 0; x < ARRAY_SIZE; x++)
   {
