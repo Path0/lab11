@@ -8,7 +8,11 @@
 *  either modified or unmodified.  Neither have I provided access to my code 
 *  to another. The effort I am submitting is my own original work.
 *
-*  Program Description:
+*  Program Description: this program makes an 100 element array of random values 
+*                       (of a range defined by the user), and if there are perfect
+*                       squares, it prints those first in order, then if there are
+*                       semi-squares it prints those second in order. If no squares
+*                       exist it informs the user of such
 *
 ******+-**--------*--*-*-**---*---*--***-*-**-*****************************/
 
@@ -116,7 +120,7 @@ int getMax()
 
     if (max <= 0)
     {
-      printf("Error! Positive range values only!!\n");
+      printf("\nError! Positive range values only!!\n\n");
     }
   } while (max <= 0);
 
@@ -204,8 +208,9 @@ void outputSquares(int array[])
   x = 0;
 
   // if the number is significant (findIdentifiedVal isn't 0) or it's also a perfect square, keep going
-  while((( (findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x])))) && (x < ARRAY_SIZE))
+  while((((findIdentifiedVal(array[x]) == 0) || (findIdentifiedVal(array[x]) == isPerfectSquare(array[x])))) && (x < ARRAY_SIZE))
   {
+    printf("%d", x);
     x++;
   }
 
